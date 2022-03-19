@@ -3,6 +3,7 @@ const app = express();
 const mongoDB = require("dotenv");
 const mongoose = require("mongoose");
 const authRoute = require("./routes/auth");
+const userRoute = require("./routes/users");
 
 mongoDB.config();
 app.use(express.json());
@@ -16,6 +17,7 @@ mongoose
   .catch((err) => console.log(err));
 
 app.use("/auth", authRoute);
+app.use("/users", userRoute);
 
 app.listen("3000", () => {
   console.log("Wakeing Up the server B0$$");
